@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [greeting, setGreeting] = useState("Hello Khemikal");
+  const [monsters, setMonsters] = useState([
+    { name: "Frankenstein", id: "kadf" },
+    { name: "Dracula", id: "adfa" },
+    { name: "Zombie", id: "lajd" },
+  ]);
+
   return (
     <div className="App">
-      <h1>{greeting}</h1>
-      <button onClick={() => setGreeting("Hello Senam")}>
-        Change Greeting
-      </button>
+      {monsters.map((monster) => (
+        <h1 key={monster.id}>{monster.name}</h1>
+      ))}
     </div>
   );
 }
