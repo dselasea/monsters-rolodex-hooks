@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const [monsters, setMonsters] = useState([
-    { name: "Frankenstein", id: "kadf" },
-    { name: "Dracula", id: "adfa" },
-    { name: "Zombie", id: "lajd" },
-  ]);
+  const [monsters, setMonsters] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users`)
+      .then((response) => response.json())
+      .then((data) => setMonsters(data));
+  }, []);
 
   return (
     <div className="App">
